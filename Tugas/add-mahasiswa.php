@@ -1,5 +1,5 @@
 <?php 
-include 'config/koneksi.php';
+include 'connect/koneksi.php';
  ?>
 
 
@@ -12,8 +12,8 @@ include 'config/koneksi.php';
 </head>
 <body>
     <form action="" method="POST">
-    <label for="jur">Jurusan</label>
-    <input type="text" id="jur" name="jurusan">
+    <label for="jur">Mahasiswa</label>
+    <input type="text" id="jur" name="mahasiswa">
     <br>
     <button type="submit" name="submit">Simpan</button>
     </form>
@@ -22,16 +22,16 @@ include 'config/koneksi.php';
 
 <?php  
 if (isset($_POST['submit'])) {
-    $jurusan = $_POST['jurusan'];
+    $jurusan = $_POST['mahasiswa'];
 
-    $result = "INSERT INTO jurusan (nama, create_at, update_at) VALUES ('$jurusan', '', '')";
+    $result = "INSERT INTO jurusan (id, nim, nama, jenis_kelamin, jurusan_id, alamat,no_telp,email ) VALUES ('$mahasiswa', '', '')";
 
 
     $sql = mysqli_query($conn, $result);
     if ($sql) {
         echo "Data berhasil disimpan";
     } else {
-        echo "Data gagal disimpan";
+        echo "Data gagal disimpan"; 
     }
     
 
