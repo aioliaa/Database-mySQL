@@ -18,27 +18,32 @@ $result = mysqli_query ($conn, "SELECT * FROM Mahasiswa");
     <br><br>
     <table border="1" cellpadding="7" cellspacing="0">
      <tr>
-         <td>ID</td>
-         <td>Nim</td>
-         <td>Nama</td>
-         <td>Jenis Kelamin</td>
-         <td>Jurusan ID</td>
-         <td>Alamat</td>
-         <td>No. Telp</td>
-         <td>E-mail</td>
-         <td>Aksi</td>
+         <th>ID</th>
+         <th>Nim</th>
+         <th>Nama</th>
+         <th>Jenis Kelamin</th>
+         <th>Jurusan ID</th>
+         <th>Alamat</th>
+         <th>No. Telp</th>
+         <th>E-mail</th>
+         <th>Aksi</th>
      </tr>
      <?php foreach ($result as $row): ?>
         <tr>
             <td><?php echo $row ["id"]; ?> </td>
             <td><?php echo $row ["nim"]; ?> </td>
             <td><?php echo $row ["nama"]; ?> </td>
-            <td><?php echo $row ["jenis_kelamin"]; ?> </td>
+            <td><?php if ($row ["jenis_kelamin"] == "L") {
+                        echo "Laki-laki";
+                    } else {
+                        echo "Perempuan";
+                    } ?>
+            </td>
             <td><?php echo $row ["jurusan_id"]; ?> </td>
             <td><?php echo $row ["alamat"]; ?> </td>
             <td><?php echo $row ["no_telp"]; ?> </td>
             <td><?php echo $row ["email"]; ?> </td>
-            <td><button>Edit</button> <button>Hapus</button></td>
+            <td><button>Edit</button><button>Hapus</button></td>
         </tr>
     <?php endforeach ?>
  </table>
